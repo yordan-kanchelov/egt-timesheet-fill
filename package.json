@@ -1,0 +1,43 @@
+{
+    "name": "typescript-library-boilerplate",
+    "version": "0.2.0",
+    "description": "typescript babel boilerplate",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jkanchelov/typescript-library-boilerplate.git"
+    },
+    "keywords": [
+        "typescript",
+        "babel",
+        "boilerplate"
+    ],
+    "author": "jkanchelov",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jkanchelov/typescript-library-boilerplate/issues"
+    },
+    "homepage": "https://github.com/jkanchelov/typescript-library-boilerplate#readme",
+    "scripts": {
+        "prepublish": "npm run build",
+        "type-check": "tsc --noEmit",
+        "type-check:watch": "npm run type-check -- --watch",
+        "build": "npm run build:types && npm run build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+        "build:watch": "npm run build && babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --watch",
+        "pretty-check": "npx prettier -c ./src/**/*.ts"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.5.0",
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-proposal-class-properties": "^7.5.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+        "@babel/preset-env": "^7.5.2",
+        "@babel/preset-typescript": "^7.3.3",
+        "husky": "^3.0.1",
+        "prettier": "^1.17.1",
+        "typescript": "^3.5.3"
+    }
+}
