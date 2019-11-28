@@ -5,8 +5,7 @@ export default async (page: Page, day: string) => {
     console.log(day);
 
     // chose date
-    const link = await page.$x(`//a[contains(text(), '${day}')]`);
-    await link[0].click();
+    await (await page.$x(`//a[contains(text(), '${day}')]`))[0].click();
     await page.waitForSelector(selectors.selectButton);
 
     // select category
