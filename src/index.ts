@@ -14,7 +14,7 @@ dotenv.config();
     });
     const page = await browser.newPage();
     await page.goto("https://employees.egt-interactive.com/timesheets/");
-    await page.waitFor("body > div:nth-child(2) > form > input[type=submit]:nth-child(4)");
+    await page.waitFor(timeSheetsSelectors.loginSubmitButton);
 
     try {
         await login(page);

@@ -4,6 +4,7 @@ enum Selectors {
     durationButton = "#duration",
     liveRoulette = "body > div:nth-child(2) > div > div.col-sm-9 > div:nth-child(2) > form > div:nth-child(3) > div:nth-child(1) > div > div > div > div.inner.show > ul > li:nth-child(43) > a",
     submitButton = "body > div:nth-child(2) > div > div.col-sm-9 > div:nth-child(2) > form > div:nth-child(3) > div:nth-child(3) > div > input",
+    loginSubmitButton = "body > div:nth-child(2) > form > input[type=submit]:nth-child(4)",
 }
 
 export default Selectors;
