@@ -6,9 +6,9 @@ export default async (browser: Browser): Promise<string[]> => {
     await page.waitFor(pageSelectors.dayLists);
 
     let list = await page.evaluate(
-        selectors =>
+        (selectors: { dayLists: string }) =>
             Array.from(document.querySelectorAll(selectors.dayLists)[0].children).map((el: Element) => {
-                return el.textContent.trim();
+                return el.textContent!.trim();
             }),
         pageSelectors
     );

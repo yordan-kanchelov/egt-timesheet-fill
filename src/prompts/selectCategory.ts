@@ -8,12 +8,13 @@ export default async (browser: Browser): Promise<string> => {
     await page.goto("https://employees.egt-interactive.com/timesheets/");
     await page.waitFor(selectors.selectButton);
     await page.click(selectors.selectButton);
+
     const categories = await page.evaluate((timeSheetSelectors: { categoryMenu: string }) => {
-        return Array.from(document.querySelector(timeSheetSelectors.categoryMenu).children)
+        return Array.from(document.querySelector(timeSheetSelectors.categoryMenu)!.children)
             .filter(el => {
                 return !el.className.includes("dropdown");
             })
-            .map(el => el.textContent.trim())
+            .map(el => el.textContent!.trim())
             .sort();
     }, selectors);
 

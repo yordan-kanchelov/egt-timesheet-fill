@@ -13,8 +13,8 @@ export default async (page: Page, day: string, desiredCategory: string) => {
 
     const categoryLink = await page.evaluateHandle(
         (selectors: { categoryMenu: string }, desiredCategory): Element => {
-            return Array.from(document.querySelector(selectors.categoryMenu).children).filter(
-                el => el.textContent.trim() == desiredCategory
+            return Array.from(document.querySelector(selectors.categoryMenu)!.children).filter(
+                el => el.textContent!.trim() == desiredCategory
             )[0];
         },
         selectors,

@@ -24,18 +24,25 @@ dotenv.config();
 
     try {
         await login(mainPage);
-        await mainPage.waitForSelector(TimeSheetsSelectors.dayLists);
         await mainPage.waitForSelector(TimeSheetsSelectors.selectButton);
     } catch (e) {
-        console.error(e);
+        console.error("Error logging in \n", e);
+        browser.close();
         return;
+    }
+
+    try {
+        await mainPage.waitForSelector(TimeSheetsSelectors.dayLists);
+    } catch (e) {
+        console.error("Error, most probably there are no days to fill \n", e);
+        browser.close();
     }
 
     let daysToFill = await listInCompleteDays(browser);
     let desiredCategory = await selectCategory(browser);
 
     while (daysToFill.length > 0) {
-        const day = daysToFill.shift();
+        const day: string = daysToFill.shift()!;
         await fillDay(mainPage, day, desiredCategory);
     }
 
