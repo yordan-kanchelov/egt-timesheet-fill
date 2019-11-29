@@ -9,7 +9,8 @@
             "program": "${workspaceFolder}/src/index.ts",
             "cwd": "${workspaceFolder}",
             "protocol": "inspector",
-            "outFiles": ["${workspaceFolder}/dist/*.js"]
+            "outFiles": ["${workspaceFolder}/dist/*.js"],
+            "console": "integratedTerminal"
         }
     ]
 }

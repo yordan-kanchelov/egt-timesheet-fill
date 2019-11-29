@@ -1,4 +1,4 @@
-import pageSelectors from "../enums/selectors";
+import pageSelectors from "../enums/timeSheetsSelectors";
 import { Page } from "puppeteer";
 export default async (page: Page): Promise<string[]> => {
     let list = await page.evaluate(
