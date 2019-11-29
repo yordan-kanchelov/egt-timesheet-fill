@@ -1,11 +1,13 @@
 import * as prompts from "prompts";
-import { Page } from "puppeteer";
+import { Browser } from "puppeteer";
 
-import selectors from "../enums/timeSheetsSelectors";
+import selectors from "../selectors/timeSheetsSelectors";
 
-export default async (page: Page): Promise<string> => {
+export default async (browser: Browser): Promise<string> => {
+    const page = await browser.newPage();
+    await page.goto("https://employees.egt-interactive.com/timesheets/");
+    await page.waitFor(selectors.selectButton);
     await page.click(selectors.selectButton);
-
     const categories = await page.evaluate((timeSheetSelectors: { categoryMenu: string }) => {
         return Array.from(document.querySelector(timeSheetSelectors.categoryMenu).children)
             .filter(el => {
@@ -28,6 +30,8 @@ export default async (page: Page): Promise<string> => {
             }),
         },
     ]);
+
+    page.close();
 
     return category;
 };

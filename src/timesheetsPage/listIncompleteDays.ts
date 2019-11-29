@@ -1,6 +1,10 @@
-import pageSelectors from "../enums/timeSheetsSelectors";
-import { Page } from "puppeteer";
-export default async (page: Page): Promise<string[]> => {
+import pageSelectors from "../selectors/timeSheetsSelectors";
+import { Browser } from "puppeteer";
+export default async (browser: Browser): Promise<string[]> => {
+    const page = await browser.newPage();
+    await page.goto("https://employees.egt-interactive.com/timesheets/");
+    await page.waitFor(pageSelectors.dayLists);
+
     let list = await page.evaluate(
         selectors =>
             Array.from(document.querySelectorAll(selectors.dayLists)[0].children).map((el: Element) => {
@@ -8,6 +12,8 @@ export default async (page: Page): Promise<string[]> => {
             }),
         pageSelectors
     );
+
+    await page.close();
 
     return list;
 };

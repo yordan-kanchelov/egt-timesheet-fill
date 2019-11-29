@@ -11,4 +11,4 @@ const timeSheetSelectors = {
 
 Object.freeze(timeSheetSelectors);
 
-export default TimeSheetSelectors;
+export default timeSheetSelectors;

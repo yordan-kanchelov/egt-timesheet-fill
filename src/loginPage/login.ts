@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
 
-import loginPageSelectors from "../enums/loginPageSelectors";
+import loginPageSelectors from "../selectors/loginPageSelectors";
 import loginPrompt from "../prompts/login";
 
 export default async (page: Page) => {

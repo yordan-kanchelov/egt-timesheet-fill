@@ -1,5 +1,5 @@
 import getPageElementsByText from "../utils/getPageElementsByText";
-import selectors from "../enums/timeSheetsSelectors";
+import selectors from "../selectors/timeSheetsSelectors";
 
 import { Page, ElementHandle } from "puppeteer";
 
