@@ -20,12 +20,15 @@
     "homepage": "https://github.com/jkanchelov/egt-timesheet-fill#readme",
     "scripts": {
         "prepublish": "npm run build",
+        "prettier-check": "npx prettier -c ./src/**/*.ts",
+        "lint-check": "npx eslint ./src/**/*.ts",
+        "code-style-check": "npm run lint-check && npm run prettier-check",
+        "format": "npx prettier --write src/**",
         "build": "tsc",
         "build:watch": "tsc -w",
-        "pretty-check": "npx prettier -c ./src/**/*.ts",
-        "watch": "npx nodemon dist/index.js",
         "start": "node dist/index.js",
-        "debug": "npx npm-run-all -p build:watch watch"
+        "start:watch": "npx nodemon dist/index.js",
+        "debug": "npx npm-run-all -p build:watch start:watch"
     },
     "devDependencies": {
         "@types/dotenv": "^8.2.0",

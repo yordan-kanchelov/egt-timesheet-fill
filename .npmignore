@@ -1,2 +1,6 @@
 tsconfig.json
 src
+.env
+.gitignore
+.prettierrc
+.eslintrc
