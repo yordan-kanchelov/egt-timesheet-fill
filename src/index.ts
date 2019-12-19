@@ -12,9 +12,7 @@ import LoginPageSelectors from "./selectors/loginPageSelectors";
 dotenv.config();
 
 (async () => {
-    const browser = await puppeteer.launch({
-        headless: false,
-    });
+    const browser = await puppeteer.launch();
 
     const mainPage = await browser.newPage();
     await mainPage.goto("https://employees.egt-interactive.com/timesheets/");
