@@ -4,8 +4,9 @@
 
 ## Usage
 
-### Simply copy paste this and start coding
-
-`git clone --depth=1 --branch=master https://github.com/jkanchelov/node-typescript-boilerplate`
-
-`rm -r -force ./node-typescript-boilerplate/.git`
+```bash
+npm i 
+npm run build
+npm run start
+```
+<br/>
