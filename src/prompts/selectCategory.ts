@@ -5,7 +5,7 @@ import selectors from "../selectors/timeSheetsSelectors";
 
 export default async (browser: Browser): Promise<string> => {
     const page = await browser.newPage();
-    await page.goto("https://employees.egt-interactive.com/timesheets/");
+    await page.goto("https://employees.amusnet.com/timesheets/");
     await page.waitFor(selectors.selectButton);
     await page.click(selectors.selectButton);
 

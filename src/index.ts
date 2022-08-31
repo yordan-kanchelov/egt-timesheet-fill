@@ -12,10 +12,13 @@ import LoginPageSelectors from "./selectors/loginPageSelectors";
 dotenv.config();
 
 (async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: false,
+        args: ["--ignore-certificate-errors"],
+    });
 
     const mainPage = await browser.newPage();
-    await mainPage.goto("https://employees.egt-interactive.com/timesheets/");
+    await mainPage.goto("https://employees.amusnet.com/timesheets/");
     await mainPage.waitFor(LoginPageSelectors.submitButton);
 
     await (await browser.pages())[0].close(); // close first blank page
